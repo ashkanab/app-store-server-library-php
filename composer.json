@@ -1,6 +1,6 @@
 {
     "name": "ashkanab/app-store-server-api",
-    "description": "Laravel (PHP) package for App Store Server API and App Store Server Notifications",
+    "description": "PHP package for App Store Server API and App Store Server Notifications",
     "type": "library",
     "require": {
         "firebase/php-jwt": "^6.10",
