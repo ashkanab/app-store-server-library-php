@@ -1,8 +1,8 @@
 <?php
 
-namespace AppStore\Contracts;
+namespace AshkanAb\AppStore\Contracts;
 
-use AppStore\Http;
+use AshkanAb\Appstore\Http;
 
 interface AppStoreEndpointInterface
 {

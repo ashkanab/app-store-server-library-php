@@ -1,9 +1,8 @@
 <?php
 
-namespace AppStore;
+namespace AshkanAb\AppStore;
 
-
-use AppStore\Models\TransactionInfoResponse;
+use AshkanAb\AppStore\Models\TransactionInfoResponse;
 
 readonly class Client
 {

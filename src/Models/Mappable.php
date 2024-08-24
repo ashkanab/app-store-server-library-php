@@ -1,6 +1,6 @@
 <?php
 
-namespace AppStore\Models;
+namespace AshkanAb\AppStore\Models;
 
 use ReflectionClass;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppStore;
+namespace AshkanAb\AppStore;
 
 use Exception;
 

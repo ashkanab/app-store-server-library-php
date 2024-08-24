@@ -1,8 +1,7 @@
 <?php
 
-namespace AppStore\Models;
+namespace AshkanAb\AppStore\Models;
 
-use Stringable;
 
 class BaseModel
 {
