@@ -1,0 +1,7 @@
+/.phpunit.cache
+/vendor
+.phpactor.json
+.phpunit.result.cache
+/.idea
+/keys
+/index.php
