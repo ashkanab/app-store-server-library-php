@@ -1,5 +1,5 @@
 {
-    "name": "ashkan/app-store-api",
+    "name": "ashkanab/app-store-server-api",
     "description": "Laravel (PHP) package for App Store Server API and App Store Server Notifications",
     "type": "library",
     "require": {
