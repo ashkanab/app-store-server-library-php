@@ -9,19 +9,13 @@ final class Factory
     private JWToken $appStoreJWT;
 
     private bool $sandbox = false;
-    public function __construct()
-    {
-    }
-
-    public function config(
+    public function __construct(
         string            $bundle,
         DateTime $expiresAt,
         string            $issuer,
         string            $keyId,
-        string            $privateKeyPath
-    ) : self
+        string            $privateKeyPath)
     {
-
         $this->appStoreJWT = new JWToken(
             $bundle,
             $expiresAt,
@@ -29,13 +23,11 @@ final class Factory
             $keyId,
             $privateKeyPath,
         );
-
-        return $this;
     }
 
-    public function setEnv($env): self
+    public function isSandbox($sandbox = false): self
     {
-        $this->sandbox = $env != 'production';
+        $this->sandbox = $sandbox;
 
         return $this;
     }
