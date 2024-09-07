@@ -2,7 +2,7 @@
 
 namespace AshkanAb\AppStore\Models;
 
-class TransactionInfoResponse extends BaseModel
+class TransactionInfo extends BaseModel
 {
     private string $signedTransactionInfo;
 

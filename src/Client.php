@@ -2,7 +2,8 @@
 
 namespace AshkanAb\AppStore;
 
-use AshkanAb\AppStore\Models\TransactionInfoResponse;
+use AshkanAb\AppStore\Models\Subscriptions;
+use AshkanAb\AppStore\Models\TransactionInfo;
 
 readonly class Client
 {
@@ -19,15 +20,17 @@ readonly class Client
         );
     }
 
-    public function transactionInfo(string $transactionId): TransactionInfoResponse
+    public function getTransactionInfo(string $transactionId): TransactionInfo
     {
-        return new TransactionInfoResponse(
+        return new TransactionInfo(
             $this->http->get('inApps/v1/transactions/'. $transactionId)
         );
     }
 
-    public function subscriptions(string $transactionId, array $options = [])
+    public function getSubscriptions(string $transactionId, array $options = []): Subscriptions
     {
-        return $this->http->get('inApps/v1/subscriptions/'. $transactionId, $options);
+        return new Subscriptions(
+            $this->http->get('inApps/v1/subscriptions/'. $transactionId, $options)
+        );
     }
 }
