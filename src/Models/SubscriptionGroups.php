@@ -4,6 +4,9 @@ namespace AshkanAb\AppStore\Models;
 
 class SubscriptionGroups extends BaseModel
 {
+    /**
+     * @var SubscriptionGroupIdentifierItem[]
+     */
     private array $items;
 
 
@@ -27,7 +30,7 @@ class SubscriptionGroups extends BaseModel
 
     /**
      * @param string $groupIdentifier
-     * @return array|null
+     * @return LastTransactionsItem[]|null
      */
     public function getLastTransactions(string $groupIdentifier): ?array
     {
