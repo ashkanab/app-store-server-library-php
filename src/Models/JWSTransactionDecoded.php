@@ -18,7 +18,7 @@ class JWSTransactionDecoded extends BaseModel
 
     private string $inAppOwnershipType;
 
-    private bool $isUpgraded = false;
+    private ?bool $isUpgraded;
 
     private ?string $offerDiscountType;
 
@@ -493,8 +493,12 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @param bool|null $isUpgraded
      */
-    public function setIsUpgraded(bool $isUpgraded = false): void
+    public function setIsUpgraded(?bool $isUpgraded): void
     {
-        $this->isUpgraded = $isUpgraded;
+        if($isUpgraded){
+            $this->isUpgraded = $isUpgraded;
+            return;
+        }
+        $this->isUpgraded = false;
     }
 }
