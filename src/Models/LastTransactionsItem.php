@@ -6,7 +6,7 @@ class LastTransactionsItem extends BaseModel
 {
     private string $originalTransactionId;
 
-    private string $status;
+    private int $status;
 
     private string $signedTransactionInfo;
 
@@ -40,17 +40,17 @@ class LastTransactionsItem extends BaseModel
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getStatus(): string
+    public function getStatus(): int
     {
         return $this->status;
     }
 
     /**
-     * @param string $status
+     * @param int $status
      */
-    public function setStatus(string $status): void
+    public function setStatus(int $status): void
     {
         $this->status = $status;
     }

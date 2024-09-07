@@ -27,14 +27,16 @@ class SubscriptionGroups extends BaseModel
 
     /**
      * @param string $groupIdentifier
-     * @return LastTransactionsItem[]
+     * @return array|null
      */
-    public function getLastTransactions(string $groupIdentifier): array
+    public function getLastTransactions(string $groupIdentifier): ?array
     {
         foreach ($this->items as $item) {
             if ($item->getSubscriptionGroupIdentifier() === $groupIdentifier) {
                 return $item->getLastTransactions();
             }
         }
+
+        return null;
     }
 }
