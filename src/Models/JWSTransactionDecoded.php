@@ -14,7 +14,7 @@ class JWSTransactionDecoded extends BaseModel
 
     private string $environment;
 
-    private DateTime $expiresDate;
+    private ?DateTime $expiresDate;
 
     private string $inAppOwnershipType;
 
@@ -60,6 +60,30 @@ class JWSTransactionDecoded extends BaseModel
         parent::__construct(
             json_decode(base64UrlDecode(explode('.', $signedTransactionInfo)[1]), true)
         );
+    }
+
+    public function isSubscription(): bool
+    {
+        return $this->type === 'Auto-Renewable Subscription' || $this->type === 'Non-Renewing Subscription';
+    }
+
+    public function isConsumable(): bool
+    {
+        return $this->type === 'Consumable';
+    }
+
+    public function isNonConsumable(): bool
+    {
+        return $this->type === 'Non-Consumable';
+    }
+
+    public function isExpired(): bool
+    {
+        if($this->expiresDate) {
+            return $this->expiresDate < new DateTime();
+        }
+
+        return false;
     }
 
 
@@ -274,7 +298,7 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @return string
      */
-    public function getAppAccountToken(): string | null
+    public function getAppAccountToken(): string|null
     {
         return $this->appAccountToken;
     }
@@ -290,7 +314,7 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @return DateTime
      */
-    public function getExpiresDate(): DateTime
+    public function getExpiresDate(): ?DateTime
     {
         return $this->expiresDate;
     }
@@ -298,15 +322,19 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @param int $expiresDate
      */
-    public function setExpiresDate(int $expiresDate): void
+    public function setExpiresDate(?int $expiresDate): void
     {
-        $this->expiresDate = (new DateTime())->setTimestamp($expiresDate / 1000);
+        if ($expiresDate) {
+            $this->expiresDate = (new DateTime())->setTimestamp($expiresDate / 1000);
+            return;
+        }
+        $this->expiresDate = null;
     }
 
     /**
      * @return string
      */
-    public function getOfferDiscountType(): string | null
+    public function getOfferDiscountType(): string|null
     {
         return $this->offerDiscountType;
     }
@@ -322,7 +350,7 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @return string
      */
-    public function getOfferIdentifier(): string | null
+    public function getOfferIdentifier(): string|null
     {
         return $this->offerIdentifier;
     }
@@ -338,7 +366,7 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @return string
      */
-    public function getOfferType(): string | null
+    public function getOfferType(): string|null
     {
         return $this->offerType;
     }
@@ -354,7 +382,7 @@ class JWSTransactionDecoded extends BaseModel
     /**
      * @return DateTime
      */
-    public function getRevocationDate(): DateTime | null
+    public function getRevocationDate(): DateTime|null
     {
         return $this->revocationDate;
     }
@@ -364,8 +392,8 @@ class JWSTransactionDecoded extends BaseModel
      */
     public function setRevocationDate(?int $revocationDate): void
     {
-        if($revocationDate) {
-            $this->revocationDate = (new DateTime())->setTimestamp($revocationDate/ 1000);
+        if ($revocationDate) {
+            $this->revocationDate = (new DateTime())->setTimestamp($revocationDate / 1000);
             return;
         }
 
