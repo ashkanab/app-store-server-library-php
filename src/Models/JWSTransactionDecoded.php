@@ -18,6 +18,8 @@ class JWSTransactionDecoded extends BaseModel
 
     private string $inAppOwnershipType;
 
+    private bool $isUpgraded = false;
+
     private ?string $offerDiscountType;
 
     private ?string $offerIdentifier;
@@ -478,5 +480,21 @@ class JWSTransactionDecoded extends BaseModel
     public function setSignedDate(int $signedDate): void
     {
         $this->signedDate = (new DateTime())->setTimestamp($signedDate / 1000);
+    }
+
+    /**
+     * @return bool|null
+     */
+    public function getIsUpgraded(): bool
+    {
+        return $this->isUpgraded;
+    }
+
+    /**
+     * @param bool|null $isUpgraded
+     */
+    public function setIsUpgraded(bool $isUpgraded = false): void
+    {
+        $this->isUpgraded = $isUpgraded;
     }
 }
