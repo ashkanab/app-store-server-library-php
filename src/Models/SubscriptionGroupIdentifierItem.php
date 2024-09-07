@@ -5,22 +5,22 @@ namespace AshkanAb\AppStore\Models;
 
 class SubscriptionGroupIdentifierItem extends BaseModel
 {
-    private int $subscriptionGroupIdentifier;
+    private string $subscriptionGroupIdentifier;
 
     private array $lastTransactions;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getSubscriptionGroupIdentifier(): int
+    public function getSubscriptionGroupIdentifier(): string
     {
         return $this->subscriptionGroupIdentifier;
     }
 
     /**
-     * @param int $subscriptionGroupIdentifier
+     * @param string $subscriptionGroupIdentifier
      */
-    public function setSubscriptionGroupIdentifier(int $subscriptionGroupIdentifier): void
+    public function setSubscriptionGroupIdentifier(string $subscriptionGroupIdentifier): void
     {
         $this->subscriptionGroupIdentifier = $subscriptionGroupIdentifier;
     }
