@@ -9,4 +9,4 @@ The PHP library for the App Store Server API
 - PHP 8.2+
 
 #### composer
-`composer install ashkanab/app-store-server-library-php`
+`composer require ashkanab/app-store-server-library-php`
