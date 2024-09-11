@@ -7,17 +7,8 @@ class SubscriptionGroups extends BaseModel
     /**
      * @var SubscriptionGroupIdentifierItem[]
      */
-    private array $items;
+    private ?array $items = null;
 
-
-    public function __construct(array $data = [])
-    {
-        foreach ($data as $value) {
-            $this->items[] = new SubscriptionGroupIdentifierItem($value);
-        }
-
-        parent::__construct([]);
-    }
 
     /**
      * @return SubscriptionGroupIdentifierItem[]
@@ -41,5 +32,18 @@ class SubscriptionGroups extends BaseModel
         }
 
         return null;
+    }
+
+    /**
+     * @param array|null $items
+     */
+    public function setItems(?array $items): void
+    {
+        if(is_null($items)) {
+            return;
+        }
+        foreach ($items as $value) {
+            $this->items[] = new SubscriptionGroupIdentifierItem($value);
+        }
     }
 }
