@@ -10,7 +10,7 @@ class Subscriptions extends BaseModel
 
     private string $bundleId;
 
-    private int $appAppleId;
+    private ?int $appAppleId;
 
     private SubscriptionGroups $data;
 
@@ -49,15 +49,15 @@ class Subscriptions extends BaseModel
     /**
      * @return string
      */
-    public function getAppAppleId(): int
+    public function getAppAppleId(): ?int
     {
         return $this->appAppleId;
     }
 
     /**
-     * @param string $appAppleId
+     * @param int|null $appAppleId
      */
-    public function setAppAppleId(int $appAppleId): void
+    public function setAppAppleId(?int $appAppleId): void
     {
         $this->appAppleId = $appAppleId;
     }
