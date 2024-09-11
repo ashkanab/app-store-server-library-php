@@ -7,7 +7,7 @@ class SubscriptionGroups extends BaseModel
     /**
      * @var SubscriptionGroupIdentifierItem[]
      */
-    private ?array $items = null;
+    private ?array $items = [];
 
 
     /**
