@@ -2,8 +2,16 @@
 
 namespace AshkanAb\AppStore\Models;
 
-class SubscriptionGroups extends BaseModel
+class SubscriptionGroups
 {
+
+    public function __construct(array $data = [])
+    {
+        foreach ($data as $value) {
+            $this->items[] = new SubscriptionGroupIdentifierItem($value);
+        }
+    }
+
     /**
      * @var SubscriptionGroupIdentifierItem[]
      */
@@ -34,16 +42,4 @@ class SubscriptionGroups extends BaseModel
         return null;
     }
 
-    /**
-     * @param array|null $items
-     */
-    public function setItems(?array $items): void
-    {
-        if(is_null($items)) {
-            return;
-        }
-        foreach ($items as $value) {
-            $this->items[] = new SubscriptionGroupIdentifierItem($value);
-        }
-    }
 }
