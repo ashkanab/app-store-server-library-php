@@ -16,11 +16,11 @@ class JWSRenewalDecoded extends BaseModel
 
     private string $environment;
 
-    private int $expirationIntent;
+    private ?int $expirationIntent;
 
     private ?DateTime $gracePeriodExpiresDate;
 
-    private bool $isInBillingRetryPeriod;
+    private ?bool $isInBillingRetryPeriod;
 
     private ?string $offerDiscountType;
 
@@ -166,7 +166,7 @@ class JWSRenewalDecoded extends BaseModel
     /**
      * @return int
      */
-    public function getExpirationIntent(): int
+    public function getExpirationIntent(): ?int
     {
         return $this->expirationIntent;
     }
@@ -174,7 +174,7 @@ class JWSRenewalDecoded extends BaseModel
     /**
      * @param int $expirationIntent
      */
-    public function setExpirationIntent(int $expirationIntent): void
+    public function setExpirationIntent(?int $expirationIntent): void
     {
         $this->expirationIntent = $expirationIntent;
     }
@@ -203,7 +203,7 @@ class JWSRenewalDecoded extends BaseModel
     /**
      * @return bool
      */
-    public function isInBillingRetryPeriod(): bool
+    public function isInBillingRetryPeriod(): ?bool
     {
         return $this->isInBillingRetryPeriod;
     }
@@ -211,7 +211,7 @@ class JWSRenewalDecoded extends BaseModel
     /**
      * @param bool $isInBillingRetryPeriod
      */
-    public function setIsInBillingRetryPeriod(bool $isInBillingRetryPeriod): void
+    public function setIsInBillingRetryPeriod(?bool $isInBillingRetryPeriod): void
     {
         $this->isInBillingRetryPeriod = $isInBillingRetryPeriod;
     }
