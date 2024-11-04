@@ -48,7 +48,7 @@ class JWSTransactionDecoded extends BaseModel
 
     private string $storefrontId;
 
-    private string $subscriptionGroupIdentifier;
+    private ?string $subscriptionGroupIdentifier;
 
     private string $transactionId;
 
@@ -419,17 +419,17 @@ class JWSTransactionDecoded extends BaseModel
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSubscriptionGroupIdentifier(): string
+    public function getSubscriptionGroupIdentifier(): ?string
     {
         return $this->subscriptionGroupIdentifier;
     }
 
     /**
-     * @param string $subscriptionGroupIdentifier
+     * @param string|null $subscriptionGroupIdentifier
      */
-    public function setSubscriptionGroupIdentifier(string $subscriptionGroupIdentifier): void
+    public function setSubscriptionGroupIdentifier(?string $subscriptionGroupIdentifier): void
     {
         $this->subscriptionGroupIdentifier = $subscriptionGroupIdentifier;
     }
