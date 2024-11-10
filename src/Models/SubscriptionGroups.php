@@ -19,9 +19,9 @@ class SubscriptionGroups
 
 
     /**
-     * @return SubscriptionGroupIdentifierItem[]
+     * @return ?SubscriptionGroupIdentifierItem[]
      */
-    public function getSubscriptionGroups(): array
+    public function getSubscriptionGroups(): ?array
     {
         return $this->items;
     }

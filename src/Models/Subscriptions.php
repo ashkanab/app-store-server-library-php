@@ -46,9 +46,7 @@ class Subscriptions extends BaseModel
         $this->bundleId = $bundleId;
     }
 
-    /**
-     * @return string
-     */
+
     public function getAppAppleId(): ?int
     {
         return $this->appAppleId;
@@ -62,9 +60,7 @@ class Subscriptions extends BaseModel
         $this->appAppleId = $appAppleId;
     }
 
-    /**
-     * @return array
-     */
+
     public function getData(): SubscriptionGroups
     {
         return $this->data;

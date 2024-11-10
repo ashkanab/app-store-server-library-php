@@ -21,5 +21,8 @@
             "email": "ashkanabdollahi19@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "vimeo/psalm": "^5.26"
+    }
 }

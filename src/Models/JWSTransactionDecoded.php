@@ -4,6 +4,10 @@ namespace AshkanAb\AppStore\Models;
 
 use DateTime;
 
+
+/**
+ * @psalm-api
+ */
 class JWSTransactionDecoded extends BaseModel
 {
     private ?string $appAccountToken;

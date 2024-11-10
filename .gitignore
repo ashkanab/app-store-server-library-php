@@ -6,3 +6,4 @@
 /keys
 /index.php
 composer.lock
+psalm.xml

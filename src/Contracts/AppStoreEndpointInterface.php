@@ -2,7 +2,7 @@
 
 namespace AshkanAb\AppStore\Contracts;
 
-use AshkanAb\Appstore\Http;
+use AshkanAb\AppStore\Http;
 
 interface AppStoreEndpointInterface
 {
